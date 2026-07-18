@@ -107,6 +107,21 @@ Start with signals that trigger an action: availability, initialization failures
 
 **Mitigation:** define retention, sampling, redaction, and alert ownership. Never log secrets or unnecessary personal data. Expand telemetry in response to identified risks rather than collecting everything by default.
 
+### Bound AI-assistant consumption and autonomy
+
+AI cost includes provider charges, developer review, agent compute, network egress, tool calls, CI minutes, incorrect changes, and incident exposure. Define a budget before adopting an assistant or autonomous workflow:
+
+- Set per-task and monthly monetary or token thresholds with an owner and anomaly alerts.
+- Route routine, low-risk work to the least expensive model that meets measured quality; reserve stronger models and larger context windows for tasks that justify them.
+- Cap iterations, retries, tool calls, delegation depth, parallel agents, runtime, CPU, memory, disk, and network access.
+- Load only relevant, sanitized context. Reuse stable summaries or indexed references when their freshness is verifiable instead of repeatedly sending an entire repository.
+- Require approval before a task expands scope, installs software, enables a paid service, increases infrastructure, or continues after its budget.
+- Keep a non-AI fallback for builds, releases, incident response, security enforcement, and essential product journeys.
+
+Measure time to verified outcome, escaped defects, review effort, recurrence, and total task cost. Prompts, tokens, generated lines, agent count, and test count are activity metrics, not value. Remove or downgrade an integration when its measured savings do not exceed subscription, review, security, privacy, and operational costs.
+
+Do not invoke a model on every user request by default. Deterministic validation, cached data, conventional search, rules, or a small function are often cheaper, faster, more explainable, and easier to test. For product-facing model use, bound input and output, rate-limit by accountable identity, cache only when privacy and correctness permit, monitor unit cost per successful outcome, and degrade safely when the provider is unavailable.
+
 ## Controls against cost surprises
 
 - Establish a normal daily and weekly usage baseline.

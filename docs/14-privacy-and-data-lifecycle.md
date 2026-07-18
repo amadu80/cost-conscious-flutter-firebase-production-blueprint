@@ -38,6 +38,14 @@ CI or infrastructure review should fail when a new ephemeral collection lacks al
 
 Avoid placing personal data in URLs, metric labels, logs, crash reports, public profiles, or Terraform outputs. Separate public profile projections from private account records. Review uploads, contact details, location precision, moderation evidence, and vulnerable-user workflows with extra care.
 
+### AI coding-assistant context
+
+An assistant may send more than the visible file: open buffers, repository structure, terminal output, Git diffs, diagnostics, prompts, tool arguments, and retrieved documents may enter provider context. Before enabling it, document the provider, subprocessors, retention, training controls, residency, deletion, access, and incident-notification terms appropriate to the data classification.
+
+Keep secrets and regulated or personal data outside the assistant-accessible workspace. Configure product-specific context exclusions for environment files, keys, credentials, exports, Terraform state, support attachments, production logs, and private evidence. `.gitignore` is not a privacy control because it does not restrict filesystem reads. Avoid pasting secrets into terminals or opening sensitive files while a tool can automatically collect surrounding context.
+
+Prompt and tool logs need a purpose, access policy, redaction, retention, deletion path, and TTL where ephemeral. Public prompt history must be sanitized and must not contain private source, personal data, production identifiers, hidden instructions, credentials, or raw model reasoning. Choose a self-hosted, isolated, or no-AI workflow when provider processing is incompatible with the data classification or legal obligation.
+
 ## Consequences and validation
 
 Minimization may reduce analytics detail; prefer aggregated questions over collecting raw data “just in case.” Test consent states, export, deletion, access restrictions, log redaction, and third-party failure. Revisit the inventory for every new provider, data field, platform, or purpose.

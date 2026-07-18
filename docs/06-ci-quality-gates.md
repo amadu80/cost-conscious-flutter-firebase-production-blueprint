@@ -56,6 +56,20 @@ Do not depend on a developer having run an undocumented command. Validate requir
 
 Tests should be deterministic, isolated, and proportionate to the failure impact. Flaky tests are operational defects because they train contributors to ignore red builds.
 
+## AI agents in CI
+
+An AI-enabled workflow can become a confused deputy when untrusted pull-request content controls an agent that also holds repository, package, cloud, or deployment credentials. Separate analysis of untrusted changes from privileged mutation:
+
+- Pull-request agents run without production secrets, write tokens, deployment identities, or access to protected runners.
+- Treat source, diffs, issue text, comments, artifacts, and tool output as untrusted prompt-injection inputs.
+- Require a trusted, reviewed event before any workflow gains write or deployment authority; do not make comment text an authorization mechanism.
+- Pin agent actions, models where the provider supports it, MCP/tool definitions, and workflow dependencies. Review changes to assistant rules files and AI workflows through owned paths.
+- Limit network egress, tool calls, runtime, retries, generated diff size, and accessible paths.
+- Preserve logs of model/tool identity, approvals, changed files, commands, and outcome without recording prompts or outputs that contain secrets or personal data.
+- Never allow an agent to merge, approve its own change, weaken required checks, or treat its generated tests as independent security review.
+
+Validate this boundary with a harmless negative fixture: an untrusted change requests secret access or deployment, and the workflow proves that the request cannot obtain either.
+
 ## Consequences and mitigation
 
 - More gates increase feedback time. Parallelize independent checks, cache safely, and run checks based on affected paths without omitting release-critical coverage.

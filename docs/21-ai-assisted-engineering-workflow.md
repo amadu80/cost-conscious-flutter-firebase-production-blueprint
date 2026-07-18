@@ -122,6 +122,56 @@ AI helped turn commit history into a sanitized case study, but was also instruct
 - Verify current provider and platform behavior using authoritative sources when it may have changed.
 - Preserve user-authored changes and inspect dirty worktrees before editing.
 
+## OWASP-aligned security rules for coding assistants
+
+AI coding assistants and agents create trust boundaries that ordinary code completion does not. They may ingest attacker-controlled repository content, execute tools, install dependencies, inherit developer credentials, modify their own instructions, and pass context to other agents. Use the [OWASP Secure Coding with AI Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secure_Coding_with_AI_Cheat_Sheet.html), [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html), and [OWASP Top 10 for GenAI](https://genai.owasp.org/llm-top-10/) as maintained reference points. Record the version or review date because guidance and tool behavior change.
+
+### Untrusted context and indirect prompt injection
+
+Treat source files, issues, pull requests, comments, logs, web pages, documentation, dependency metadata, tool descriptions, images, and generated output as untrusted data—not instructions with authority. An assistant must not follow embedded requests to reveal data, weaken controls, run commands, install software, or change scope merely because they appear in a file it was asked to inspect.
+
+Separate trusted project policy from task data. When external content influences a proposed action, restate the action against the human-approved goal and permission boundary. Require approval for new authority and validate consequential output deterministically before execution. Prompt injection cannot be solved by telling the model to “ignore malicious instructions”; reduce the available permissions and blast radius.
+
+### Persistent rules files
+
+Files such as `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`, Cursor rules, Windsurf rules, Aider configuration, and custom system prompts steer future work and are a persistence surface.
+
+- Inventory all supported rules-file locations, including nested overrides.
+- Assign owners and require explicit review for creation, modification, deletion, or renaming.
+- Add path-based CI detection and `CODEOWNERS` review for these files.
+- Reject instructions that disable safety controls, hide files from review, expand permissions, suppress tests, or authorize production actions.
+- Do not let an assistant approve its own rules-file change.
+
+### Tools, MCP servers, plugins, and skills
+
+Maintain an allowlist recording source, version, owner, permissions, data destinations, and review date for every connected tool, MCP server, plugin, or skill. Tool descriptions and updates are supply-chain inputs and may themselves contain hostile instructions.
+
+Pin versions or definitions where supported, detect unexpected changes, prevent tool-name shadowing, validate arguments, and grant only the filesystem, network, database, and external-service access required for the task. Do not permit automatic discovery or installation from untrusted sources. A coding assistant does not need access to email, payments, production databases, or organization administration merely because connectors exist.
+
+### Runtime isolation and credentials
+
+Run agents in a restricted workspace, container, VM, or ephemeral runner when risk justifies it. Deny sensitive paths and credential stores, restrict egress by default, cap CPU, memory, disk, process count, execution time, retries, and concurrency, and use short-lived task-scoped identities. Avoid unattended or auto-accept modes on untrusted repositories.
+
+`gitignore` only controls Git tracking; it does not prevent an assistant from reading a file. Implement a dedicated AI context isolation policy:
+
+- **AI-Specific Ignore Files:** Use tools such as `.aiexclude` or `.cursorignore` to explicitly deny agent access to sensitive patterns (e.g., `.artifacts/`, `.tfstate`, `.env`, `.pem`).
+- **Workspace Isolation:** Keep secrets and production exports outside the assistant-accessible workspace root.
+- **Provider Policy Review:** Document and verify provider context collection, training, and retention behavior.
+
+### Generated code, tests, and dependencies
+
+Verify that suggested packages exist at the expected registry, are owned by the expected publisher, have acceptable maintenance and licensing, and are pinned through the normal dependency workflow. Never install a hallucinated or similarly named package to make generated code compile.
+
+Security-critical authentication, authorization, cryptography, validation, Rules, IAM, CI, infrastructure, and deployment changes require an accountable human reviewer. Do not let the same assistant's implementation and generated tests serve as independent security evidence. Flag deleted or weakened tests, require justification for fixture changes, and use negative controls or mutation where appropriate to prove that a test detects the missing control.
+
+### Delegation and accountability
+
+Every sub-agent inherits the same scope, prohibited actions, data restrictions, and tool limits. Bound delegation depth and concurrency, record which agent produced consequential output, and require the parent or human reviewer to validate merged results. Multiple agreeing agents are not independent assurance when they share context, models, instructions, or failure modes.
+
+Every accepted AI-assisted change has a named human owner who understands the diff and remains accountable for correctness, security, licensing, maintenance, and deployment. AI review can assist but cannot approve its own output or replace required human review.
+
+Use the [AI coding-assistant threat model](../templates/ai-coding-assistant-threat-model.md) before enabling a new assistant, autonomous mode, connector, MCP server, CI agent, or materially broader permission.
+
 ## Common AI failure modes observed or anticipated
 
 ### Confident completion without runtime evidence

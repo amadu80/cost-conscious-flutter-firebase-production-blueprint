@@ -1,4 +1,4 @@
-# Cost-Conscious Flutter + Firebase Production Blueprintt
+# Cost-Conscious Flutter + Firebase Production Blueprint
 
 A technology-neutral case study and practical guide for taking a Flutter web application from prototype to a secure, observable, repeatable, and cost-conscious production release.
 
@@ -42,7 +42,7 @@ A choice is cost-conscious only when its savings exceed the operational and risk
 
 The main reusable artifact is the [AI-assisted engineering workflow](docs/21-ai-assisted-engineering-workflow.md): how context was gathered, options were challenged, surgical changes were made, evidence was required, incidents were converted into controls, and AI contributions were attributed without transferring human accountability.
 
-[Evidence templates](templates/README.md) support that workflow across threat modelling, releases, observability, restore drills, privacy, infrastructure ownership, performance/cost, accessibility, supply chain, and accepted risk.
+[Evidence templates](templates/README.md) support that workflow across system and AI-assistant threat modelling, releases, observability, restore drills, privacy, infrastructure ownership, performance/cost, accessibility, supply chain, and accepted risk.
 
 This repository intentionally does not focus on copied code samples. Code without the original constraints, tests, runtime, and operating model would create false confidence and distract from the transferable decision process.
 
@@ -58,6 +58,7 @@ This repository intentionally does not focus on copied code samples. Code withou
 - Reliability, backups, restore drills, rollback, and disaster recovery
 - Performance, scalability, privacy, data lifecycle, accessibility, localization, and SEO
 - Dependency and software-supply-chain controls
+- OWASP-aligned AI coding-assistant, tool, and prompt-context controls
 - Data migrations, feature flags, phased platform releases, budgets, and incident learning
 
 ## Reference architecture
@@ -104,6 +105,7 @@ Operations-> backups, restore, rollback, incidents, budgets, data changes
 19. [Technology selection: what was chosen and why](docs/19-technology-selection.md)
 20. [Architecture evolution and lessons from the full history](docs/20-architecture-evolution-and-lessons.md)
 21. [AI-assisted engineering workflow](docs/21-ai-assisted-engineering-workflow.md)
+22. [Information security and compliance alignment](docs/22-infosec-and-compliance-alignment.md)
 
 | UI, business rules, and Firebase become coupled | Feature-oriented layers and repository contracts | Testability and controlled vendor boundaries | [Architecture decisions](docs/02-architecture-decisions.md) |
 | Local builds hide missing production inputs | Layered CI gates and explicit generation | Reproducibility in clean environments | [CI and quality gates](docs/06-ci-quality-gates.md) |
@@ -116,6 +118,7 @@ Operations-> backups, restore, rollback, incidents, budgets, data changes
 | Performance and billed operations degrade with growth | Measure budgets and optimize the dominant constraint | Avoid both premature scale engineering and reactive firefighting | [Performance and scalability](docs/13-performance-and-scalability.md) |
 | Telemetry and product features collect personal data | Inventory purpose, consent, access, retention, and deletion | Security alone does not provide privacy | [Privacy and data lifecycle](docs/14-privacy-and-data-lifecycle.md) |
 | Trusted dependencies or CI can compromise artifacts | Pinned, bounded upgrades and protected build identities | Make supply-chain changes reviewable and reversible | [Dependencies and supply chain](docs/15-dependencies-and-supply-chain.md) |
+| AI assistants ingest hostile context or misuse privileged tools | Untrusted-context handling, rules-file review, tool allowlists, sandboxing, and human approval | Bound prompt-injection, supply-chain, leakage, and excessive-agency risk | [AI-assisted engineering workflow](docs/21-ai-assisted-engineering-workflow.md) |
 | A functional SPA remains inaccessible or undiscoverable | Shared accessibility/localization controls and route-specific SEO | Production quality includes inclusive access and public discovery | [Accessibility, localization, and SEO](docs/16-accessibility-localization-and-seo.md) |
 | Shared Flutter code implies false cross-platform readiness | Separate web, Android, and iOS release gates | Signing, attestation, stores, devices, and rollback differ | [Platform release strategy](docs/17-platform-release-strategy.md) |
 | Data scripts and flags change production outside releases | Versioned, idempotent, observable, reversible operations | Operational changes need the same discipline as code | [Data operations and feature flags](docs/18-data-operations-and-feature-flags.md) |
@@ -163,7 +166,7 @@ This blueprint is open-source, but maintaining a production-grade reference arch
 
 If this decision map saved your team days of architectural discovery, protected you from a Firebase billing spike, or hardened your release pipeline, consider supporting the project.
 
-👉 [**Sponsor the Blueprintt via Buy Me a Coffee**](https://www.buymeacoffee.com/amadu80z)
+👉 [**Sponsor the Blueprint via Buy Me a Coffee**](https://www.buymeacoffee.com/amadu80z)
 
 ## License
 

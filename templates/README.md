@@ -6,6 +6,7 @@ Templates help collect evidence; they are not evidence by themselves. Copy a tem
 | --- | --- |
 | Architecture boundaries and coupling evidence | [architecture-boundary-review.md](architecture-boundary-review.md) |
 | System context and threat model | [threat-model.md](threat-model.md) |
+| AI coding-assistant permissions and threats | [ai-coding-assistant-threat-model.md](ai-coding-assistant-threat-model.md) |
 | Release provenance and rollback | [release-evidence.md](release-evidence.md) |
 | SLIs, SLOs, alerts, and diagnosis | [observability-exercise.md](observability-exercise.md) |
 | Backup restoration and recovery | [restore-drill.md](restore-drill.md) |
