@@ -8,13 +8,13 @@ Each decision below records the problem, credible options, the selected approach
 
 ### Problem
 
-Flutter makes it easy to call a backend SDK directly from a widget. That is productive at prototype stage, but business rules, state transitions, persistence, and UI behavior quickly become coupled. Tests then require platform plugins or Firebase initialization, and changing a data source affects screens throughout the application.
+Flutter makes it easy to call a backend SDK directly from a widget. That is productive at prototype stage, but business rules, state transitions, persistence, and UI behaviour quickly become coupled. Tests then require platform plugins or Firebase initialization, and changing a data source affects screens throughout the application.
 
 ### Options considered
 
 1. **Feature code with direct SDK calls in widgets:** fastest initial implementation, but tightly couples presentation to Firebase and makes deterministic testing difficult.
 2. **Traditional technical layers:** separate all models, repositories, services, and screens into global folders. Boundaries are clear, but work on one feature is spread across the repository.
-3. **Feature-oriented clean architecture:** organize code by feature while keeping presentation, domain, and data boundaries inside each feature. This adds interfaces and mapping code but localizes change.
+3. **Feature-oriented clean architecture:** organise code by feature while keeping presentation, domain, and data boundaries inside each feature. This adds interfaces and mapping code but localizes change.
 
 ### Decision
 
@@ -28,11 +28,11 @@ Dependencies point inward: presentation and data may depend on domain contracts;
 
 ### Why
 
-The project needs fast delivery, but deterministic business logic and safe backend evolution matter more than minimizing the first few files. Feature ownership keeps related code discoverable, while dependency direction prevents vendor behavior from becoming application behavior.
+The project needs fast delivery, but deterministic business logic and safe backend evolution matter more than minimizing the first few files. Feature ownership keeps related code discoverable, while dependency direction prevents vendor behaviour from becoming application behaviour.
 
 ### Consequences and mitigation
 
-- More interfaces and mapping code must be maintained. Introduce them at meaningful boundaries, not for value objects with no behavior.
+- More interfaces and mapping code must be maintained. Introduce them at meaningful boundaries, not for value objects with no behaviour.
 - Developers must decide where logic belongs. Document examples and enforce the direction through reviews and tests.
 - Small features may initially look over-structured. Keep use cases focused and avoid speculative abstractions.
 
@@ -79,7 +79,7 @@ Repository-backed screens do not always have data. They initialize, refresh, bec
 ### Options considered
 
 1. **Nullable data plus boolean flags:** simple initially, but permits invalid combinations such as `loading == true` with an unhandled error.
-2. **Exceptions handled inside widgets:** flexible, but duplicates state interpretation and recovery behavior.
+2. **Exceptions handled inside widgets:** flexible, but duplicates state interpretation and recovery behaviour.
 3. **Typed state variants:** model loading, data, empty, and error explicitly, optionally retaining stale data during refresh.
 
 ### Decision
@@ -88,16 +88,16 @@ Every screen consuming a repository must render deliberate loading, data, empty,
 
 ### Why
 
-Explicit states make failure behavior part of the feature design and test surface. Users receive meaningful feedback, and developers can validate recovery paths without relying on timing accidents.
+Explicit states make failure behaviour part of the feature design and test surface. Users receive meaningful feedback, and developers can validate recovery paths without relying on timing accidents.
 
 ### Consequences and mitigation
 
 - More UI branches and tests are required. Provide shared visual components while keeping feature-specific recovery actions local.
-- Cached and refreshing states can multiply variants. Model only distinctions that change user behavior.
+- Cached and refreshing states can multiply variants. Model only distinctions that change user behaviour.
 
 ### Revisit when
 
-Extend the state model when offline-first workflows, optimistic updates, or partial failures introduce user-visible behavior that existing variants cannot express safely.
+Extend the state model when offline-first workflows, optimistic updates, or partial failures introduce user-visible behaviour that existing variants cannot express safely.
 
 ## ADR-004: Use declarative routing for the web client
 
@@ -107,8 +107,8 @@ A web application must support deep links, browser history, refreshes, authentic
 
 ### Options considered
 
-1. **Imperative navigation:** familiar and direct, but difficult to reconcile with browser URLs and refresh behavior.
-2. **Custom URL parsing:** complete control, but recreates routing, redirection, and restoration behavior.
+1. **Imperative navigation:** familiar and direct, but difficult to reconcile with browser URLs and refresh behaviour.
+2. **Custom URL parsing:** complete control, but recreates routing, redirection, and restoration behaviour.
 3. **A declarative Flutter router:** routes derive application state from the URL and centralize guards and redirects.
 
 ### Decision
@@ -117,7 +117,7 @@ Use a declarative router, with route definitions and authentication redirects ke
 
 ### Why
 
-Declarative routing makes URLs shareable and refresh-safe while giving authentication and authorization transitions a consistent policy. It also creates a testable mapping between URL, application state, and visible page.
+Declarative routing makes URLs shareable and refresh-safe while giving authentication and authorisation transitions a consistent policy. It also creates a testable mapping between URL, application state, and visible page.
 
 ### Consequences and mitigation
 
@@ -151,7 +151,7 @@ The approach keeps latency and database cost proportional to what the user consu
 ### Consequences and mitigation
 
 - Jumping to an arbitrary page is not naturally supported. Prefer continuous discovery or preserve known cursors for limited back-navigation.
-- Cached content can become stale. Define freshness per feature and expose refresh behavior where it affects decisions.
+- Cached content can become stale. Define freshness per feature and expose refresh behaviour where it affects decisions.
 - Denormalized summaries can drift. Update related records atomically or through idempotent repair processes.
 
 ### Revisit when
@@ -180,7 +180,7 @@ At uncertain early scale, engineering time and operational simplicity are the sc
 
 ### Consequences and mitigation
 
-- Costs can grow through inefficient access or abuse. Use App Check, authorization rules, bounded queries, budgets, quotas, and usage monitoring.
+- Costs can grow through inefficient access or abuse. Use App Check, authorisation rules, bounded queries, budgets, quotas, and usage monitoring.
 - Provider outages affect several capabilities simultaneously. Design clear degraded states and operational communication.
 - Migration remains non-trivial. Keep domain models and repository contracts application-owned, and document the usage or compliance thresholds that would trigger reevaluation.
 

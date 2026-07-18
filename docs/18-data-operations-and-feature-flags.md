@@ -2,7 +2,7 @@
 
 ## Problem
 
-Imports, migrations, taxonomy changes, denormalized counters, and feature flags can change production behavior without an application release. A malformed feed or inconsistent flag default can hide data, bypass intended validation, or make the UI disagree with backend rules.
+Imports, migrations, taxonomy changes, denormalised counters, and feature flags can change production behaviour without an application release. A malformed feed or inconsistent flag default can hide data, bypass intended validation, or make the UI disagree with backend rules.
 
 ## Options considered
 
@@ -20,7 +20,7 @@ Validate input schema and provenance, quarantine invalid records, avoid embeddin
 
 ## Feature-flag controls
 
-Use safe defaults for missing or malformed values. Separate deployment from activation, roll out gradually, observe behavior, and retain a kill switch for high-risk features. A UI flag is not authorization: backend rules and functions must enforce security independently.
+Use safe defaults for missing or malformed values. Separate deployment from activation, roll out gradually, observe behaviour, and retain a kill switch for high-risk features. A UI flag is not authorization: backend rules and functions must enforce security independently.
 
 ## Consequences and validation
 

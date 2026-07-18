@@ -16,13 +16,13 @@ Use the third option. Define critical journeys and recovery objectives before bu
 
 ## Reliability model
 
-Classify journeys by impact: application startup, authentication, core reads, core writes, uploads, messaging, and administrative recovery. Define an SLI, objective, dependency, failure behavior, and owner for each. A non-critical analytics failure should not block startup; failure of enforced client attestation may be release-blocking because protected data access depends on it.
+Classify journeys by impact: application startup, authentication, core reads, core writes, uploads, messaging, and administrative recovery. Define an SLI, objective, dependency, failure behaviour, and owner for each. A non-critical analytics failure should not block startup; failure of enforced client attestation may be release-blocking because protected data access depends on it.
 
 Use timeouts, capped exponential backoff with jitter, idempotency keys, transactions, and concurrency limits. Avoid retrying permanent authorization or validation errors. Expose cached or read-only states only when doing so is safe and clear to users.
 
 ## Backup decision
 
-Automate database backups with retention based on loss tolerance, but treat a configured schedule as unverified until restoration succeeds. Define recovery point objective (acceptable data loss) and recovery time objective (acceptable restoration duration). Preserve infrastructure state and release artifacts separately from application data.
+Automate database backups with retention based on loss tolerance, but treat a configured schedule as unverified until restoration succeeds. Define recovery point objective (acceptable data loss) and recovery time objective (acceptable restoration duration). Preserve infrastructure state and release artefacts separately from application data.
 
 Restore into an isolated project or database, verify counts and invariants, test application compatibility, document permissions and timing, then dispose of test data securely. Protect restore tooling from accidental production targeting.
 
@@ -49,11 +49,11 @@ A production-capable seed should:
 6. Preserve user-owned and environment-specific fields. Baseline values must not overwrite emergency feature-flag decisions unless an explicit recovery mode authorizes it.
 7. Verify postconditions: expected identifiers exist, counts fall within the reviewed range, required flags have valid types, and a real application read path succeeds.
 
-Treat the canonical input and seed logic as production recovery artifacts: review changes, test against an emulator or disposable project, record a checksum with drill evidence, and prohibit service-account key files from the repository. Prefer short-lived workload identity for automation.
+Treat the canonical input and seed logic as production recovery artefacts: review changes, test against an emulator or disposable project, record a checksum with drill evidence, and prohibit service-account key files from the repository. Prefer short-lived workload identity for automation.
 
 ### Recovery drill and evidence
 
-Measure the baseline separately from full data recovery. Record detection time, authorization time, seed duration, validation duration, resulting record counts, script and source revisions, operator, and exceptions. A useful objective might be “restore required reference data and safe configuration within the declared RTO,” but the team must choose the duration from business impact rather than copying an example.
+Measure the baseline separately from full data recovery. Record detection time, authorisation time, seed duration, validation duration, resulting record counts, script and source revisions, operator, and exceptions. A useful objective might be “restore required reference data and safe configuration within the declared RTO,” but the team must choose the duration from business impact rather than copying an example.
 
 The baseline seed is not a backup. It cannot recover user records, audit history, uploads, or the exact state immediately before an incident. Point-in-time recovery, managed exports, protected infrastructure state, and tested application-data restoration remain necessary.
 

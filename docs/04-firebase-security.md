@@ -26,9 +26,9 @@ Use layered controls and assign each control a distinct responsibility:
 
 ## Why
 
-No single control covers the threat model. Authentication without authorization exposes data; App Check without rules accepts authorized unofficial behavior; rules cannot safely perform every privileged workflow; server endpoints without IAM remain an administrative risk.
+No single control covers the threat model. Authentication without authorisation exposes data; App Check without rules accepts authorised unofficial behaviour; rules cannot safely perform every privileged workflow; server endpoints without IAM remain an administrative risk.
 
-## Authorization and validation rules
+## Authorisation and validation rules
 
 Rules should deny by default and grant the narrowest operation required. Validate ownership, immutable fields, allowed transitions, field types, required and permitted keys, collection scope, and resource size. Queries must align with rule constraints so the client cannot request a broader dataset and rely on result filtering.
 
@@ -56,7 +56,7 @@ Enforcing App Check immediately can block legitimate production clients when pro
 
 Adopt staged enforcement. Register supported applications, integrate providers, observe token metrics, validate CI release builds, then enforce one backend service at a time with monitoring and rollback instructions.
 
-App Check is a signal of client authenticity, not user authorization. Rules and server validation remain mandatory.
+App Check is a signal of client authenticity, not user authorisation. Rules and server validation remain mandatory.
 
 ## Privileged server operations
 
@@ -66,7 +66,7 @@ Use Cloud Functions for secrets, administrative changes, multi-document invarian
 
 A product serving a known country and a defined diaspora can reduce low-value bot traffic before it reaches hosting or Cloud Functions. An edge WAF allowlist based on country codes is a coarse cost and noise control: traffic outside the documented market is blocked or challenged before it consumes application-level work.
 
-This is not an authorization boundary. IP geolocation is imperfect, users travel, VPNs and mobile networks distort location, and attackers can originate inside an allowed country. Authentication, Security Rules, App Check, input validation, rate limits, and idempotency remain mandatory.
+This is not an authorisation boundary. IP geolocation is imperfect, users travel, VPNs and mobile networks distort location, and attackers can originate inside an allowed country. Authentication, Security Rules, App Check, input validation, rate limits, and idempotency remain mandatory.
 
 Use a controlled rollout:
 
@@ -86,11 +86,11 @@ Hardening is not only about blocking unauthorized traffic; it is about establish
 
 **Trade-off:** raw reports can be large and difficult to parse manually.
 
-**Mitigation:** include an `rua` (aggregate reporting) tag in the DMARC record to receive daily performance audits from major mail providers. This provides zero-cost intelligence into who is attempting to spoof the project domain, turning a passive security gate into an active audit signal without requiring a paid 3rd-party analyzer initially.
+**Mitigation:** include an `rua` (aggregate reporting) tag in the DMARC record to receive daily performance audits from major mail providers. This provides zero-cost intelligence into who is attempting to spoof the project domain, turning a passive security gate into an active audit signal without requiring a paid 3rd-party analyser initially.
 
 ## Secrets and IAM
 
-Public Firebase client configuration is not an authorization secret, but that does not make every identifier suitable for publication. Service-account keys, private API credentials, Terraform state, tokens, and backend secrets belong in managed secret stores or protected CI variables.
+Public Firebase client configuration is not an authorisation secret, but that does not make every identifier suitable for publication. Service-account keys, private API credentials, Terraform state, tokens, and backend secrets belong in managed secret stores or protected CI variables.
 
 Prefer short-lived workload identities over downloaded keys. Separate deployment, runtime, and human roles. Review permissions and unused identities on a schedule.
 

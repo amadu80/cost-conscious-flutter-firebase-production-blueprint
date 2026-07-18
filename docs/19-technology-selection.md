@@ -30,8 +30,8 @@ Every choice therefore includes a revisit trigger. A cost-conscious decision is 
 | Primary database | Cloud Firestore | Realtime client access, offline support, and managed scaling | Query constraints, denormalization, rules complexity, billed operations |
 | Trusted backend logic | Cloud Functions | Privileged, event-driven operations without server management | Cold starts, retries, runtime constraints, and per-use cost |
 | Identity | Firebase Authentication | Managed identity flows integrated with Firebase controls | Provider dependence and limited customization |
-| Client attestation | Firebase App Check | Reduce abuse from unofficial clients | Not authorization; rollout can block legitimate clients |
-| Static delivery | Firebase Hosting | Direct integration with Flutter artifacts and Firebase tooling | Cache correctness and platform coupling |
+| Client attestation | Firebase App Check | Reduce abuse from unofficial clients | Not authorisation; rollout can block legitimate clients |
+| Static delivery | Firebase Hosting | Direct integration with Flutter artefacts and Firebase tooling | Cache correctness and platform coupling |
 | Edge, DNS, and security controls | Cloudflare | DNS, TLS, caching, headers, and abuse controls in one edge layer | Second control plane and cache/debugging complexity |
 | Infrastructure as code | Terraform | Reviewable plans, repeatability, drift visibility, remote state | Provider gaps, state risk, and maintenance overhead |
 | CI | GitHub Actions | Repository-integrated quality gates with low initial overhead | Hosted-runner trust, action supply chain, and usage limits |
@@ -60,7 +60,7 @@ Flutter offers high code reuse, a consistent component model, strong typing, mat
 
 ### Trade-offs
 
-Flutter web can have a larger initial payload and less natural HTML semantics than a conventional web framework. SEO, accessibility, text behavior, browser integration, and low-end device performance need explicit validation. Mobile still requires native signing, permissions, attestation, stores, and device testing.
+Flutter web can have a larger initial payload and less natural HTML semantics than a conventional web framework. SEO, accessibility, text behaviour, browser integration, and low-end device performance need explicit validation. Mobile still requires native signing, permissions, attestation, stores, and device testing.
 
 ### Revisit when
 
@@ -146,7 +146,7 @@ Firebase was selected because team time and operating complexity cost more than 
 
 ### Problem
 
-The client needs responsive structured data access, realtime updates in selected flows, offline behavior, and a low-operations database.
+The client needs responsive structured data access, realtime updates in selected flows, offline behaviour, and a low-operations database.
 
 ### Options considered
 
@@ -220,7 +220,7 @@ Choose Remote Config for remotely controlled product flags, with a typed, versio
 
 ### Trade-offs and revisit trigger
 
-Remote values can be stale and diverge from backend policy. They are never authorization. Revisit when approvals, audit history, cross-service consistency, or real-time rollout requires a dedicated control plane.
+Remote values can be stale and diverge from backend policy. They are never authorisation. Revisit when approvals, audit history, cross-service consistency, or real-time rollout requires a dedicated control plane.
 
 ## Firebase Hosting
 
@@ -266,7 +266,7 @@ Cloudflare combines low-cost DNS, TLS, caching, headers, and security controls w
 
 ### Trade-offs
 
-It creates a second control plane. Cache keys, duplicated headers, certificate behavior, DNS proxying, provider outages, and debugging become more complex. Edge caching must never expose private or user-specific content.
+It creates a second control plane. Cache keys, duplicated headers, certificate behaviour, DNS proxying, provider outages, and debugging become more complex. Edge caching must never expose private or user-specific content.
 
 ### Revisit when
 
@@ -291,7 +291,7 @@ Choose Terraform because it produces reviewable plans across providers, supports
 
 ### Trade-offs and revisit trigger
 
-State becomes sensitive operational infrastructure, provider support can lag, and partial coverage creates split ownership. Maintain a resource inventory and manual-exception register. Revisit the tool or module design when provider gaps, team scale, state blast radius, or organizational standards require another approach.
+State becomes sensitive operational infrastructure, provider support can lag, and partial coverage creates split ownership. Maintain a resource inventory and manual-exception register. Revisit the tool or module design when provider gaps, team scale, state blast radius, or organisational standards require another approach.
 
 ## GitHub Actions
 
@@ -316,9 +316,9 @@ Hosted actions and runners are supply-chain dependencies; usage and concurrency 
 
 ## Firebase Emulator Suite for integration boundaries
 
-Pure mocks are fast but reproduce assumptions rather than provider behavior. Shared cloud test projects are realistic but slower, stateful, costly, and risky. Choose the Firebase Emulator Suite for Rules and provider-boundary tests while retaining fakes for deterministic domain tests.
+Pure mocks are fast but reproduce assumptions rather than provider behaviour. Shared cloud test projects are realistic but slower, stateful, costly, and risky. Choose the Firebase Emulator Suite for Rules and provider-boundary tests while retaining fakes for deterministic domain tests.
 
-Emulators do not reproduce every production quota, IAM, App Check, latency, index, or browser behavior. Hosted smoke tests remain necessary. Revisit the balance when emulator divergence causes repeated escaped defects.
+Emulators do not reproduce every production quota, IAM, App Check, latency, index, or browser behaviour. Hosted smoke tests remain necessary. Revisit the balance when emulator divergence causes repeated escaped defects.
 
 ## Regional deployment and data placement
 
@@ -342,7 +342,7 @@ Managed inference adds probabilistic errors, privacy questions, SDK churn, laten
 
 Shared taxonomy or geography drifts when copied into client code, backend scripts, fixtures, and database baselines. Keep one versioned canonical manifest and generate typed projections for each runtime. CI should fail on unexpected generated diffs.
 
-Generation adds tooling and committed artifacts can become stale. Revisit when controlled non-technical editing, real-time updates, or schema governance requires a dedicated data service.
+Generation adds tooling and committed artefacts can become stale. Revisit when controlled non-technical editing, real-time updates, or schema governance requires a dedicated data service.
 
 ## Native Firebase and Google Cloud observability
 

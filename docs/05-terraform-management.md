@@ -23,7 +23,7 @@ The primary value is not shorter configuration. It is the ability to explain an 
 
 ## Scope and ownership
 
-Prioritize resources whose manual drift has security, availability, or cost impact:
+Prioritise resources whose manual drift has security, availability, or cost impact:
 
 - DNS records and domain verification
 - Hosting and edge-cache policies
@@ -57,7 +57,7 @@ Use encrypted remote state with restricted access, versioning, and locking. Sepa
 3. Generate a plan using the target environment's protected identity.
 4. Review creates, updates, replacements, deletions, unknown values, and cost or security impact.
 5. Apply the reviewed plan through a protected workflow.
-6. Verify behavior at the provider and public service boundary.
+6. Verify behaviour at the provider and public service boundary.
 7. Retain audit evidence and monitor the change.
 
 Production applies should not originate from an unrestricted personal workstation when protected CI or controlled automation is available.
@@ -66,7 +66,7 @@ Production applies should not originate from an unrestricted personal workstatio
 
 Before import, inventory the live resource, ownership, dependencies, and provider limitations. Write configuration that represents the intended state, import one bounded group at a time, and require a no-surprise plan before allowing Terraform to manage it.
 
-Never resolve an unexpected destructive plan by applying it experimentally. Determine whether configuration, import identity, provider behavior, or real drift is responsible.
+Never resolve an unexpected destructive plan by applying it experimentally. Determine whether configuration, import identity, provider behaviour, or real drift is responsible.
 
 ## Surgical drift management
 

@@ -29,7 +29,7 @@ Confirm the branch, commit, semantic version, target environment, authenticated 
 
 ### Build-time synchronization, not remembered flags
 
-Values owned by infrastructure—such as a public reCAPTCHA/App Check site key—should flow from reviewed Terraform outputs into generated application configuration before compilation. Do not depend on a developer remembering a long `--dart-define` value: omission can produce a valid artifact whose protected backend calls fail at runtime.
+Values owned by infrastructure—such as a public reCAPTCHA/App Check site key—should flow from reviewed Terraform outputs into generated application configuration before compilation. Do not depend on a developer remembering a long `--dart-define` value: omission can produce a valid artefact whose protected backend calls fail at runtime.
 
 Use a small, versioned generator in the release sequence:
 
@@ -43,7 +43,7 @@ flutter build web
 
 The generator should read structured output rather than scrape human-readable text, allowlist output names, validate non-empty values and expected formats, escape generated literals, write to a temporary file before replacement, and fail closed. It must never copy sensitive Terraform outputs into browser code or print values unnecessarily. Terraform state and generated secret material remain protected.
 
-Commit the generator and a secret-free configuration schema. Choose deliberately whether the generated Dart file is committed: committing it makes drift reviewable but can create environment churn; generating it only in CI avoids that churn but requires a reproducibility check. In either case, add a test that runs generation from fixture outputs and confirms a missing required value stops the build. Stamp the artifact with the source commit and a hash of the non-sensitive configuration so deployment verification can prove what was baked in without revealing the value itself.
+Commit the generator and a secret-free configuration schema. Choose deliberately whether the generated Dart file is committed: committing it makes drift reviewable but can create environment churn; generating it only in CI avoids that churn but requires a reproducibility check. In either case, add a test that runs generation from fixture outputs and confirms a missing required value stops the build. Stamp the artefact with the source commit and a hash of the non-sensitive configuration so deployment verification can prove what was baked in without revealing the value itself.
 
 This synchronization must run before analysis, tests that import generated configuration, and compilation. The release workflow, not individual developers, owns the ordering.
 
@@ -57,7 +57,7 @@ Build in release mode with declared configuration. Do not place server secrets i
 
 ### 4. Release identity
 
-Create a small release metadata artifact containing non-sensitive values such as application version, commit identifier, and UTC build time. The application and support process should be able to report the deployed identity.
+Create a small release metadata artefact containing non-sensitive values such as application version, commit identifier, and UTC build time. The application and support process should be able to report the deployed identity.
 
 ### 5. Cache policy
 
@@ -67,7 +67,7 @@ Create a small release metadata artifact containing non-sensitive values such as
 
 ### 6. Controlled deployment
 
-Deploy to a preview channel or controlled target when the platform permits. Review the exact artifact and hosting configuration being promoted.
+Deploy to a preview channel or controlled target when the platform permits. Review the exact artefact and hosting configuration being promoted.
 
 ### 7. Public verification
 
@@ -84,11 +84,11 @@ Monitor initialization failures, client errors, authentication, App Check, backe
 - The pipeline becomes production-critical code. Keep it small, versioned, reviewed, and tested in a non-production target.
 - Release stamping changes build output. Generate it deterministically and exclude secrets or personal data.
 - Long-lived assets improve performance but make incorrect naming dangerous. Apply immutable caching only to content-addressed files.
-- Service workers can preserve old behavior. Test transitions between releases and document how to invalidate a faulty worker safely.
+- Service workers can preserve old behaviour. Test transitions between releases and document how to invalidate a faulty worker safely.
 
 ## Revisit when
 
-Reassess the process when Flutter changes its web bootstrap or service-worker behavior, hosting providers change cache semantics, server-side rendering is introduced, or release frequency requires progressive delivery and automated rollback.
+Reassess the process when Flutter changes its web bootstrap or service-worker behaviour, hosting providers change cache semantics, server-side rendering is introduced, or release frequency requires progressive delivery and automated rollback.
 
 ## Validation evidence
 

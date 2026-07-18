@@ -17,8 +17,8 @@
 - [ ] Third-party actions pinned to trusted immutable revisions.
 - [ ] Workflow changes receive protected review.
 - [ ] Cloud access uses short-lived least-privileged identity.
-- [ ] Secrets are masked and absent from artifacts/logs.
-- [ ] Tested artifact is promoted without rebuild.
+- [ ] Secrets are masked and absent from artefacts/logs.
+- [ ] Tested artefact is promoted without rebuild.
 - [ ] Affected releases can be identified after a package compromise.
 
 ## AI-assisted changes

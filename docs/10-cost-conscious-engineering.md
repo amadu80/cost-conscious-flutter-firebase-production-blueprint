@@ -24,7 +24,7 @@ Serverless Firebase services reduce idle infrastructure, patching, and operation
 
 **Trade-off:** usage-based pricing can become expensive during abuse, inefficient queries, or rapid growth.
 
-**Mitigation:** use budgets, quotas, App Check, restrictive authorization rules, efficient indexes, cursor pagination, caching, and usage dashboards. Define a usage level at which the service choice must be reviewed.
+**Mitigation:** use budgets, quotas, App Check, restrictive authorisation rules, efficient indexes, cursor pagination, caching, and usage dashboards. Define a usage level at which the service choice must be reviewed.
 
 ### Use static hosting and edge caching
 
@@ -58,7 +58,7 @@ Independent budgets make it clear whether spend originates from backend operatio
 
 **Mitigation:** use staged thresholds, an owned notification channel, service quotas where appropriate, and a documented response for every alert level.
 
-### Optimize data access before adding infrastructure
+### Optimise data access before adding infrastructure
 
 Cursor pagination, local persistence, aggregated reads, and avoidance of N+1 queries reduce both latency and billed operations.
 
@@ -97,11 +97,11 @@ Strict security rules, least-privilege IAM, security headers, App Check, rate co
 
 **Trade-off:** free controls still require engineering time, monitoring, and correct configuration. They do not replace a threat model or specialist review when risk increases.
 
-**Mitigation:** prioritize controls by likelihood and impact, automate verification, document ownership, and schedule security reviews at defined growth milestones.
+**Mitigation:** prioritise controls by likelihood and impact, automate verification, document ownership, and schedule security reviews at defined growth milestones.
 
 ### Keep observability focused
 
-Start with signals that trigger an action: availability, initialization failures, authorization denials, function errors, latency, usage anomalies, and budget thresholds.
+Start with signals that trigger an action: availability, initialisation failures, authorisation denials, function errors, latency, usage anomalies, and budget thresholds.
 
 **Trade-off:** excessive logging creates cost and privacy exposure; insufficient telemetry makes incidents longer.
 
@@ -114,7 +114,7 @@ AI cost includes provider charges, developer review, agent compute, network egre
 - Set per-task and monthly monetary or token thresholds with an owner and anomaly alerts.
 - Route routine, low-risk work to the least expensive model that meets measured quality; reserve stronger models and larger context windows for tasks that justify them.
 - Cap iterations, retries, tool calls, delegation depth, parallel agents, runtime, CPU, memory, disk, and network access.
-- Load only relevant, sanitized context. Reuse stable summaries or indexed references when their freshness is verifiable instead of repeatedly sending an entire repository.
+- Load only relevant, sanitised context. Reuse stable summaries or indexed references when their freshness is verifiable instead of repeatedly sending an entire repository.
 - Require approval before a task expands scope, installs software, enables a paid service, increases infrastructure, or continues after its budget.
 - Keep a non-AI fallback for builds, releases, incident response, security enforcement, and essential product journeys.
 

@@ -16,7 +16,7 @@ Three broad approaches were considered:
 
 1. Release the prototype and respond to failures reactively.
 2. Build a comprehensive production platform before launch.
-3. Harden the system incrementally, prioritizing security, release, recovery, and cost risks.
+3. Harden the system incrementally, prioritising security, release, recovery, and cost risks.
 
 This blueprint adopts the third approach. Every major recommendation should identify the problem, credible alternatives, selected decision, reasoning, consequences, mitigation, validation evidence, and a condition for revisiting it.
 
@@ -40,7 +40,7 @@ A choice is cost-conscious only when its savings exceed the operational and risk
 
 ## AI-assisted engineering, not a code-example repository
 
-The main reusable artifact is the [AI-assisted engineering workflow](docs/21-ai-assisted-engineering-workflow.md): how context was gathered, options were challenged, surgical changes were made, evidence was required, incidents were converted into controls, and AI contributions were attributed without transferring human accountability.
+The main reusable artefact is the [AI-assisted engineering workflow](docs/21-ai-assisted-engineering-workflow.md): how context was gathered, options were challenged, surgical changes were made, evidence was required, incidents were converted into controls, and AI contributions were attributed without transferring human accountability.
 
 [Evidence templates](templates/README.md) support that workflow across system and AI-assistant threat modelling, releases, observability, restore drills, privacy, infrastructure ownership, performance/cost, accessibility, supply chain, and accepted risk.
 
@@ -56,9 +56,10 @@ This repository intentionally does not focus on copied code samples. Code withou
 - CI quality gates, deterministic tests, formatting, and static analysis
 - Observability across logs, metrics, traces, events, release correlation, SLOs, synthetic checks, dashboards, and alerting
 - Reliability, backups, restore drills, rollback, and disaster recovery
-- Performance, scalability, privacy, data lifecycle, accessibility, localization, and SEO
+- Performance, scalability, privacy, data lifecycle, accessibility, localisation, and SEO
 - Dependency and software-supply-chain controls
 - OWASP-aligned AI coding-assistant, tool, and prompt-context controls
+- Information-security framework alignment without implying implementation or certification
 - Data migrations, feature flags, phased platform releases, budgets, and incident learning
 
 ## Reference architecture
@@ -99,7 +100,7 @@ Operations-> backups, restore, rollback, incidents, budgets, data changes
 13. [Performance and scalability](docs/13-performance-and-scalability.md)
 14. [Privacy and data lifecycle](docs/14-privacy-and-data-lifecycle.md)
 15. [Dependencies and software supply chain](docs/15-dependencies-and-supply-chain.md)
-16. [Accessibility, localization, and SEO](docs/16-accessibility-localization-and-seo.md)
+16. [Accessibility, localisation, and SEO](docs/16-accessibility-localisation-and-seo.md)
 17. [Platform release strategy](docs/17-platform-release-strategy.md)
 18. [Data operations and feature flags](docs/18-data-operations-and-feature-flags.md)
 19. [Technology selection: what was chosen and why](docs/19-technology-selection.md)
@@ -110,16 +111,17 @@ Operations-> backups, restore, rollback, incidents, budgets, data changes
 | UI, business rules, and Firebase become coupled | Feature-oriented layers and repository contracts | Testability and controlled vendor boundaries | [Architecture decisions](docs/02-architecture-decisions.md) |
 | Local builds hide missing production inputs | Layered CI gates and explicit generation | Reproducibility in clean environments | [CI and quality gates](docs/06-ci-quality-gates.md) |
 | Browsers use files from different releases | Release identity and differentiated cache policy | Safe upgrades without disabling useful caching | [Flutter web releases](docs/03-flutter-web-release.md) |
-| Public clients can bypass UI behavior | Authentication, Rules, App Check, Functions, and IAM | No single control covers identity, authorization, and abuse | [Firebase security](docs/04-firebase-security.md) |
+| Public clients can bypass UI behaviour | Authentication, Rules, App Check, Functions, and IAM | No single control covers identity, authorisation, and abuse | [Firebase security](docs/04-firebase-security.md) |
 | Console configuration drifts | Incremental Terraform with protected remote state | Reviewability, recovery, and repeatability | [Terraform management](docs/05-terraform-management.md) |
 | Usage-based services create uncertain cost | Focused monitoring, separate budgets, unit economics, and upgrade triggers | Keep consumption visible and decisions reversible | [Monitoring](docs/07-monitoring-and-cost-control.md) and [cost-conscious engineering](docs/10-cost-conscious-engineering.md) |
 | Uptime is green while user journeys fail | Structured logs, metrics, traces, events, synthetic checks, and release correlation | Diagnose both predicted and unknown failure modes | [Observability](docs/11-observability.md) |
 | Backup configuration creates false confidence | Define RPO/RTO and exercise isolated restoration and rollback | Recovery must be demonstrated, not assumed | [Reliability, backup, and recovery](docs/12-reliability-backup-and-recovery.md) |
-| Performance and billed operations degrade with growth | Measure budgets and optimize the dominant constraint | Avoid both premature scale engineering and reactive firefighting | [Performance and scalability](docs/13-performance-and-scalability.md) |
+| Performance and billed operations degrade with growth | Measure budgets and optimise the dominant constraint | Avoid both premature scale engineering and reactive firefighting | [Performance and scalability](docs/13-performance-and-scalability.md) |
 | Telemetry and product features collect personal data | Inventory purpose, consent, access, retention, and deletion | Security alone does not provide privacy | [Privacy and data lifecycle](docs/14-privacy-and-data-lifecycle.md) |
-| Trusted dependencies or CI can compromise artifacts | Pinned, bounded upgrades and protected build identities | Make supply-chain changes reviewable and reversible | [Dependencies and supply chain](docs/15-dependencies-and-supply-chain.md) |
+| Trusted dependencies or CI can compromise artefacts | Pinned, bounded upgrades and protected build identities | Make supply-chain changes reviewable and reversible | [Dependencies and supply chain](docs/15-dependencies-and-supply-chain.md) |
 | AI assistants ingest hostile context or misuse privileged tools | Untrusted-context handling, rules-file review, tool allowlists, sandboxing, and human approval | Bound prompt-injection, supply-chain, leakage, and excessive-agency risk | [AI-assisted engineering workflow](docs/21-ai-assisted-engineering-workflow.md) |
-| A functional SPA remains inaccessible or undiscoverable | Shared accessibility/localization controls and route-specific SEO | Production quality includes inclusive access and public discovery | [Accessibility, localization, and SEO](docs/16-accessibility-localization-and-seo.md) |
+| Security framework crosswalks are mistaken for compliance | Evidence levels, scoped applicability, management-system requirements, and explicit claim boundaries | Use standards to organise risk without compliance theatre | [Information-security alignment](docs/22-infosec-and-compliance-alignment.md) |
+| A functional SPA remains inaccessible or undiscoverable | Shared accessibility/localisation controls and route-specific SEO | Production quality includes inclusive access and public discovery | [Accessibility, localisation, and SEO](docs/16-accessibility-localisation-and-seo.md) |
 | Shared Flutter code implies false cross-platform readiness | Separate web, Android, and iOS release gates | Signing, attestation, stores, devices, and rollback differ | [Platform release strategy](docs/17-platform-release-strategy.md) |
 | Data scripts and flags change production outside releases | Versioned, idempotent, observable, reversible operations | Operational changes need the same discipline as code | [Data operations and feature flags](docs/18-data-operations-and-feature-flags.md) |
 | A tool list does not explain architecture | Record alternatives, selection rationale, trade-offs, and exit triggers for every core technology | Keep the stack contextual and challengeable | [Technology selection](docs/19-technology-selection.md) |
@@ -137,7 +139,7 @@ The blueprint now treats the following as first-class production concerns:
 - CI, testing, dependencies, and software supply chain
 - Observability, reliability, backup, recovery, and incident response
 - Performance, scalability, capacity, and cost control
-- Accessibility, localization, SEO, and platform-specific delivery
+- Accessibility, localisation, SEO, and platform-specific delivery
 - Data operations, feature flags, governance, and documented revisit triggers
 
 No static guide can guarantee that nothing important is missing for every system. Use this coverage model with a project-specific threat model, data classification, dependency inventory, regulatory review, and pre-mortem to identify requirements.
@@ -145,7 +147,7 @@ No static guide can guarantee that nothing important is missing for every system
 ## Guiding principles
 
 - Treat production readiness as a system, not a final deployment step.
-- **Main Task Priority:** Fulfill the primary request or incident resolution first. Layer additional optimizations, tests, and documentation only after the core objective is verified to manage system and team cognitive load.
+- **Main Task Priority:** Fulfil the primary request or incident resolution first. Layer additional optimisations, tests, and documentation only after the core objective is verified to manage system and team cognitive load.
 - Put vendor SDKs behind application-owned boundaries.
 - Keep secrets out of source control and Terraform state outputs.
 - Make releases identifiable, reproducible, and reversible.
@@ -168,6 +170,6 @@ If this decision map saved your team days of architectural discovery, protected 
 
 👉 [**Sponsor the Blueprint via Buy Me a Coffee**](https://www.buymeacoffee.com/amadu80z)
 
-## License
+## Licence
 
 Licensed under the [MIT License](LICENSE).

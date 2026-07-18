@@ -32,7 +32,7 @@
 ## Rollback exercise
 
 - **Trigger:**
-- **Known-good artifact/deployment:**
+- **Known-good artefact/deployment:**
 - **Steps:**
 - **Start/end UTC:**
 - **Data/schema compatibility result:**

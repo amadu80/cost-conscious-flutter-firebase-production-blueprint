@@ -19,13 +19,13 @@ The constraints were a small team, low initial budget, uncertain traffic, limite
 
 ### Release the prototype and fix problems reactively
 
-This provides the shortest path to launch. It was rejected because failures involving authorization, build configuration, cache incompatibility, or uncontrolled spend are expensive to diagnose after public exposure.
+This provides the shortest path to launch. It was rejected because failures involving authorisation, build configuration, cache incompatibility, or uncontrolled spend are expensive to diagnose after public exposure.
 
 ### Build a comprehensive platform before launch
 
 This can create strong controls, but it delays learning, adds fixed cost, and risks optimizing for hypothetical scale. It was rejected as disproportionate to the project's maturity.
 
-### Harden the system in risk-prioritized stages
+### Harden the system in risk-prioritised stages
 
 This adds controls incrementally, beginning with failures that could block release, expose data, or create unbounded cost. It preserves delivery speed while requiring evidence at each stage.
 
@@ -69,7 +69,7 @@ Every deployment receives a release identity. Mutable control files revalidate, 
 
 ## Stage 6: Operate within risk and budget
 
-Monitoring focuses on signals that trigger action: availability, initialization, authorization failures, backend errors, latency, usage anomalies, and service-specific budgets. Pre-mortems anticipate failure; post-mortems turn real incidents into controls.
+Monitoring focuses on signals that trigger action: availability, initialisation, authorisation failures, backend errors, latency, usage anomalies, and service-specific budgets. Pre-mortems anticipate failure; post-mortems turn real incidents into controls.
 
 **Evidence:** each alert has an owner and response; thresholds are tested; corrective actions are tracked to completion.
 
@@ -78,7 +78,7 @@ Monitoring focuses on signals that trigger action: availability, initialization,
 - Staged hardening can leave known gaps temporarily. Record each gap, owner, impact, and deadline or upgrade trigger.
 - Quality gates slow individual merges. Keep them deterministic and fast enough to run continuously.
 - Managed services reduce operational work but concentrate vendor and pricing risk. Preserve application boundaries and review cost thresholds.
-- Documentation can drift from implementation. Treat operational guides as release artifacts and verify them during exercises.
+- Documentation can drift from implementation. Treat operational guides as release artefacts and verify them during exercises.
 
 ## Revisit when
 

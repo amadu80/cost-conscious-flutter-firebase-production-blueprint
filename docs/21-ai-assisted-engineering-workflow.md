@@ -31,7 +31,7 @@ Useful prompt pattern:
 
 > Read the relevant history and documents first. State the current design, constraints, and evidence. Do not change files yet.
 
-### 2. Define the problem and authorization boundary
+### 2. Define the problem and authorisation boundary
 
 The human states the desired outcome, target files or systems, current error, release scope, and what must not change. Ambiguous structural or destructive work is confirmed before action.
 
@@ -59,7 +59,7 @@ The human distinguishes:
 
 - **Code evidence:** the implementation exists.
 - **Test evidence:** a controlled assertion passes.
-- **Deployment evidence:** the intended artifact is live.
+- **Deployment evidence:** the intended artefact is live.
 - **Operational evidence:** failure is detected and recovered.
 
 ### 6. Challenge the output with another role
@@ -76,7 +76,7 @@ Documentation records the problem, alternatives, decision, rationale, consequenc
 
 ### 8. Attribute AI participation
 
-Project prompts are recorded in a sanitized history with timestamp, user command, assistant/engine, and response summary. 
+Project prompts are recorded in a sanitised history with timestamp, user command, assistant/engine, and response summary. 
 
 **VCS Attribution Standards:**
 When an assistant generates a Git commit, append a machine-readable trailer to the commit message:
@@ -104,11 +104,11 @@ AI helped translate console-managed resources into Terraform, review provider li
 
 ### Release engineering and incidents
 
-AI helped correlate build configuration, plugin registration, service workers, caches, hosting headers, public-origin behavior, and rollback. Pre-mortems and post-mortems converted incidents into release gates and known-gap registers.
+AI helped correlate build configuration, plugin registration, service workers, caches, hosting headers, public-origin behaviour, and rollback. Pre-mortems and post-mortems converted incidents into release gates and known-gap registers.
 
 ### Documentation and self-review
 
-AI helped turn commit history into a sanitized case study, but was also instructed to challenge its own output. Polished documentation can overstate maturity as easily as polished code.
+AI helped turn commit history into a sanitised case study, but was also instructed to challenge its own output. Polished documentation can overstate maturity as easily as polished code.
 
 ## Guardrails
 
@@ -119,7 +119,7 @@ AI helped turn commit history into a sanitized case study, but was also instruct
 - Keep security, privacy, safeguarding, and product decisions owned by accountable humans.
 - Prefer small diffs and explicit targets; reject unrelated refactoring.
 - Stop repeated build attempts when external dependencies are the blocker.
-- Verify current provider and platform behavior using authoritative sources when it may have changed.
+- Verify current provider and platform behaviour using authoritative sources when it may have changed.
 - Preserve user-authored changes and inspect dirty worktrees before editing.
 
 ## OWASP-aligned security rules for coding assistants
@@ -146,7 +146,7 @@ Files such as `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`, Curso
 
 Maintain an allowlist recording source, version, owner, permissions, data destinations, and review date for every connected tool, MCP server, plugin, or skill. Tool descriptions and updates are supply-chain inputs and may themselves contain hostile instructions.
 
-Pin versions or definitions where supported, detect unexpected changes, prevent tool-name shadowing, validate arguments, and grant only the filesystem, network, database, and external-service access required for the task. Do not permit automatic discovery or installation from untrusted sources. A coding assistant does not need access to email, payments, production databases, or organization administration merely because connectors exist.
+Pin versions or definitions where supported, detect unexpected changes, prevent tool-name shadowing, validate arguments, and grant only the filesystem, network, database, and external-service access required for the task. Do not permit automatic discovery or installation from untrusted sources. A coding assistant does not need access to email, payments, production databases, or organisation administration merely because connectors exist.
 
 ### Runtime isolation and credentials
 
@@ -154,7 +154,7 @@ Run agents in a restricted workspace, container, VM, or ephemeral runner when ri
 
 `gitignore` only controls Git tracking; it does not prevent an assistant from reading a file. Implement a dedicated AI context isolation policy:
 
-- **AI-Specific Ignore Files:** Use tools such as `.aiexclude` or `.cursorignore` to explicitly deny agent access to sensitive patterns (e.g., `.artifacts/`, `.tfstate`, `.env`, `.pem`).
+- **AI-Specific Ignore Files:** Use tools such as `.aiexclude` or `.cursorignore` to explicitly deny agent access to sensitive patterns (e.g., `.artefacts/`, `.tfstate`, `.env`, `.pem`).
 - **Workspace Isolation:** Keep secrets and production exports outside the assistant-accessible workspace root.
 - **Provider Policy Review:** Document and verify provider context collection, training, and retention behavior.
 
@@ -231,6 +231,6 @@ Sensitive information excluded:
 
 ## What this workflow does not prove
 
-Using multiple assistants, recording prompts, and attributing commits does not prove correctness, originality, security, compliance, or production readiness. The evidence remains tests, reviewed changes, deployed artifact identity, operational exercises, user outcomes, and accountable human decisions.
+Using multiple assistants, recording prompts, and attributing commits does not prove correctness, originality, security, compliance, or production readiness. The evidence remains tests, reviewed changes, deployed artefact identity, operational exercises, user outcomes, and accountable human decisions.
 
 The strongest use of AI in this project was not generating more code. It was repeatedly expanding the set of questions asked, accelerating bounded implementation, and forcing decisions and failures to become explicit. That value disappears if the human stops verifying the answers.

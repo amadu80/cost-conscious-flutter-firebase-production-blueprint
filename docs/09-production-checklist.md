@@ -20,31 +20,31 @@ Use evidence-based gates proportional to change risk. A routine content change s
 
 ## Gate 1: Scope and reproducibility
 
-**Why:** prevents deploying the wrong commit, target, or locally contaminated artifact.
+**Why:** prevents deploying the wrong commit, target, or locally contaminated artefact.
 
 - [ ] Release scope, target environment, commit, version, and owner are identified.
 - [ ] Toolchain and dependency versions are controlled or recorded.
 - [ ] Required generated configuration can be produced in a clean environment.
 - [ ] Required build-time values are present and validated without exposing secrets.
 - [ ] Formatting, analysis, deterministic tests, rule tests, and infrastructure validation pass.
-- [ ] The production artifact was built by the documented workflow.
+- [ ] The production artefact was built by the documented workflow.
 
-**Stop condition:** do not release if the artifact cannot be reproduced from the identified commit and declared inputs.
+**Stop condition:** do not release if the artefact cannot be reproduced from the identified commit and declared inputs.
 
 ## Gate 2: Security boundaries
 
-**Why:** client behavior is untrusted and enforcement changes can either expose data or block legitimate users.
+**Why:** client behaviour is untrusted and enforcement changes can either expose data or block legitimate users.
 
 - [ ] Authentication establishes the intended identities and handles initialization failure.
 - [ ] Firestore and Storage tests cover allowed and denied operations.
 - [ ] Ownership, immutable fields, field types, transitions, and query scope are enforced.
 - [ ] App Check metrics support the planned enforcement level for every released platform.
-- [ ] Privileged Functions validate identity, authorization, input bounds, replay, and idempotency.
+- [ ] Privileged Functions validate identity, authorisation, input bounds, replay, and idempotency.
 - [ ] Runtime and deployment IAM follow least privilege.
-- [ ] No credentials, Terraform state, private variables, or sensitive artifacts are staged.
-- [ ] Public security headers and TLS behavior match policy.
+- [ ] No credentials, Terraform state, private variables, or sensitive artefacts are staged.
+- [ ] Public security headers and TLS behaviour match policy.
 
-**Stop condition:** do not accept an undocumented authorization bypass or an App Check rollout that has not been observed with the release artifact.
+**Stop condition:** do not accept an undocumented authorisation bypass or an App Check rollout that has not been observed with the release artefact.
 
 ## Gate 3: Infrastructure change
 
@@ -72,7 +72,7 @@ Use evidence-based gates proportional to change risk. A routine content change s
 - [ ] Upgrade from the previous release passes without missing or incompatible assets.
 - [ ] Hosting and edge headers were verified from the public URL, not only configuration files.
 
-**Stop condition:** do not promote when the deployed release identity is unknown or consecutive-release behavior has not been tested after cache-policy changes.
+**Stop condition:** do not promote when the deployed release identity is unknown or consecutive-release behaviour has not been tested after cache-policy changes.
 
 ## Gate 5: Data and backward compatibility
 
@@ -92,7 +92,7 @@ Use evidence-based gates proportional to change risk. A routine content change s
 **Why:** deployment success does not detect partial initialization failures, abuse, retry storms, or variable-cost growth.
 
 - [ ] Availability, release identity, client initialization, and uncaught errors are monitored.
-- [ ] Authentication, App Check, authorization denials, and backend errors have usable signals.
+- [ ] Authentication, App Check, authorisation denials, and backend errors have usable signals.
 - [ ] Function latency, retries, and idempotency conflicts are observable.
 - [ ] Cloud and edge budgets have staged thresholds and owned notification routes.
 - [ ] Quotas and abuse controls have sufficient legitimate-traffic headroom.
@@ -105,9 +105,9 @@ Use evidence-based gates proportional to change risk. A routine content change s
 
 **Why:** recovery steps written for an older architecture may fail when they are finally needed.
 
-- [ ] The previous known-good artifact or deployment is identifiable.
+- [ ] The previous known-good artefact or deployment is identifiable.
 - [ ] Application, hosting, rules, functions, and infrastructure rollback order is understood.
-- [ ] Rollback does not reintroduce incompatible data or security behavior.
+- [ ] Rollback does not reintroduce incompatible data or security behaviour.
 - [ ] Operational and user communication owners are identified.
 - [ ] The current rollback procedure has been exercised in a safe environment.
 

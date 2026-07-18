@@ -2,7 +2,7 @@
 
 ## Problem
 
-Flutter shares application code, but web, Android, and iOS have different signing, attestation, permissions, stores, crash symbolication, background behavior, and rollback mechanisms. Treating one successful platform build as cross-platform readiness creates false confidence.
+Flutter shares application code, but web, Android, and iOS have different signing, attestation, permissions, stores, crash symbolication, background behaviour, and rollback mechanisms. Treating one successful platform build as cross-platform readiness creates false confidence.
 
 ## Options considered
 
@@ -20,11 +20,11 @@ Domain tests, repository boundaries, generated configuration, backend rules, pri
 
 ## Android gates
 
-Validate release signing and key custody, build variants, Play Integrity/App Check, manifest permissions, deep links, notification behavior, physical-device performance, crash/ANR reporting, store declarations, staged rollout, and halt/rollback procedure.
+Validate release signing and key custody, build variants, Play Integrity/App Check, manifest permissions, deep links, notification behaviour, physical-device performance, crash/ANR reporting, store declarations, staged rollout, and halt/rollback procedure.
 
 ## iOS gates
 
-Validate certificates and provisioning, entitlements, DeviceCheck or App Attest, privacy manifests and permission text, universal links, notification behavior, physical-device testing, dSYM upload and symbolication, TestFlight rollout, review requirements, and recovery procedure.
+Validate certificates and provisioning, entitlements, DeviceCheck or App Attest, privacy manifests and permission text, universal links, notification behaviour, physical-device testing, dSYM upload and symbolication, TestFlight rollout, review requirements, and recovery procedure.
 
 ## Consequences and revisit triggers
 

@@ -1,4 +1,4 @@
-# Accessibility, localization, and SEO
+# Accessibility, localisation, and SEO
 
 ## Problem
 
@@ -6,21 +6,21 @@ A web application can be technically operational while excluding keyboard, scree
 
 ## Options considered
 
-1. Treat accessibility, localization, and discovery as post-launch polish.
+1. Treat accessibility, localisation, and discovery as post-launch polish.
 2. Replace the client architecture solely for theoretical SEO.
 3. Define requirements by route and user need, test them continuously, and introduce server-rendered surfaces only where evidence requires them.
 
 ## Decision and why
 
-Build accessibility and localization into shared components and release gates. Define which routes are public and discoverable, which are private or application-only, and which need server-rendered metadata or separate content pages.
+Build accessibility and localisation into shared components and release gates. Define which routes are public and discoverable, which are private or application-only, and which need server-rendered metadata or separate content pages.
 
 ## Accessibility controls
 
 Use semantic labels and roles, logical focus order, visible focus, keyboard operation, sufficient contrast, scalable text, reduced-motion consideration, descriptive errors, announced loading changes, and meaningful alternatives for images. Automated scans catch only part of the problem; include keyboard and screen-reader testing in critical flows.
 
-## Localization controls
+## Localisation controls
 
-Keep user-visible strings in localization resources, test every supported locale, handle text expansion and pluralization, and localize validation and backend error mapping. Format currency, dates, numbers, geography, and terminology according to the target community rather than translating words in isolation.
+Keep user-visible strings in localisation resources, test every supported locale, handle text expansion and pluralisation, and localise validation and backend error mapping. Format currency, dates, numbers, geography, and terminology according to the target community rather than translating words in isolation.
 
 ## SEO and public web strategy
 

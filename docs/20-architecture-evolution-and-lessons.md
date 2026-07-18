@@ -12,7 +12,7 @@ The project moved the initial backend to Firebase. This was not a conclusion tha
 
 ## From direct implementation to application boundaries
 
-Early Flutter features accumulated datastore access close to UI behavior. Mocks enabled development but could not prove provider behavior. Direct dependencies made repositories difficult to swap, SDK types leaked across layers, and failures were represented inconsistently.
+Early Flutter features accumulated datastore access close to UI behaviour. Mocks enabled development but could not prove provider behaviour. Direct dependencies made repositories difficult to swap, SDK types leaked across layers, and failures were represented inconsistently.
 
 The response was incremental:
 
@@ -40,7 +40,7 @@ The project added role permissions, protected actions, domain validators, typed 
 
 Feature flags remained operational controls, not authorization. Reputation and moderation UI could imply trust that the system had not verified, so evidence provenance, human ownership, expiry, and appeal became architectural concerns.
 
-## Web release behavior became architecture
+## Web release behaviour became architecture
 
 Domain routing, refresh, service workers, cached assets, plugin registrants, CSP, fonts, CanvasKit/Wasm loading, authentication domains, and generated configuration caused failures that unit tests could not detect.
 
@@ -66,7 +66,7 @@ Regional configuration changed when service compatibility invalidated an earlier
 
 ## Observability expanded beyond product analytics
 
-Product analytics and crash signals arrived before a complete operating model. Provider dashboards could not guarantee correlation across client initialization, repositories, Auth, App Check, Rules, Functions, storage, edge behavior, and release identity. Some desired provider metrics were unavailable or unsuitable for direct alerts.
+Product analytics and crash signals arrived before a complete operating model. Provider dashboards could not guarantee correlation across client initialisation, repositories, Auth, App Check, Rules, Functions, storage, edge behaviour, and release identity. Some desired provider metrics were unavailable or unsuitable for direct alerts.
 
 The design expanded toward structured events, client crash/performance signals, latency/error/usage policies, budgets, release correlation, and synthetic checks for gaps platform metrics could not express.
 
@@ -78,7 +78,7 @@ Taxonomy, geography, feature defaults, messaging configuration, and imported rec
 
 The project introduced canonical manifests with generated runtime projections, idempotent imports, controlled baseline restoration, TTL for ephemeral documents, storage lifecycle transitions, and an infrastructure/cost inventory.
 
-A restoration script is not a backup, and a generated file is not a source of truth unless CI verifies it. Lifecycle policy must include purpose, retention, recovery impact, cost, legal requirements, and deletion behavior.
+A restoration script is not a backup, and a generated file is not a source of truth unless CI verifies it. Lifecycle policy must include purpose, retention, recovery impact, cost, legal requirements, and deletion behaviour.
 
 ## Managed AI was constrained behind trusted boundaries
 

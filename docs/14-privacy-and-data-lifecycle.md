@@ -12,7 +12,7 @@ Authentication, analytics, crash reporting, messaging, uploads, logs, and suppor
 
 ## Decision and why
 
-Use data minimization and lifecycle ownership. Maintain an inventory covering field, purpose, lawful basis or consent, storage location, access, processor, retention, deletion behavior, export requirements, and incident impact. Legal requirements vary by jurisdiction and require qualified review.
+Use data minimisation and lifecycle ownership. Maintain an inventory covering field, purpose, lawful basis or consent, storage location, access, processor, retention, deletion behaviour, export requirements, and incident impact. Legal requirements vary by jurisdiction and require qualified review.
 
 ## Consent and telemetry
 

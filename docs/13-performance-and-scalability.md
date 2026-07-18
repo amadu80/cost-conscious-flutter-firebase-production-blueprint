@@ -2,13 +2,13 @@
 
 ## Problem
 
-Flutter web startup, large JavaScript bundles, images, Firestore reads, function cold starts, and edge behavior affect both experience and cost. Optimizing without measurements wastes effort; waiting until scale can lock expensive access patterns into the product.
+Flutter web startup, large JavaScript bundles, images, Firestore reads, function cold starts, and edge behaviour affect both experience and cost. Optimizing without measurements wastes effort; waiting until scale can lock expensive access patterns into the product.
 
 ## Options considered
 
-1. Optimize prematurely for hypothetical traffic.
+1. Optimise prematurely for hypothetical traffic.
 2. Ignore performance until users complain.
-3. Establish budgets and representative measurements, then optimize the dominant constraint.
+3. Establish budgets and representative measurements, then optimise the dominant constraint.
 
 ## Decision and why
 

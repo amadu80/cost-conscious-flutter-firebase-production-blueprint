@@ -8,12 +8,12 @@ A serverless application can appear operational while initialization, authentica
 
 1. **Use provider dashboards reactively:** no setup cost, but failures are discovered late and investigation lacks agreed baselines.
 2. **Collect every available signal:** broad evidence, but expensive, noisy, and potentially harmful to privacy.
-3. **Monitor only uptime:** useful for total outages, but blind to client initialization, authorization, data, and cost failures.
+3. **Monitor only uptime:** useful for total outages, but blind to client initialisation, authorisation, data, and cost failures.
 4. **Adopt action-oriented monitoring:** collect a small set of service and user-journey signals, each tied to an owner and response.
 
 ## Decision
 
-Start with action-oriented monitoring and expand from demonstrated risks. Monitor availability, release identity, client initialization, uncaught errors, authentication, App Check, authorization denials, function errors and latency, retry behavior, database operations, storage and egress growth, and edge-cache effectiveness.
+Start with action-oriented monitoring and expand from demonstrated risks. Monitor availability, release identity, client initialisation, uncaught errors, authentication, App Check, authorization denials, function errors and latency, retry behaviour, database operations, storage and egress growth, and edge-cache effectiveness.
 
 ## Why
 
@@ -39,7 +39,7 @@ Observability is useful only when it changes a decision. A focused set reduces c
 ### Cost drivers
 
 - Reads, writes, storage, function execution, egress, and hosting traffic
-- Cache-hit behavior and unexpected origin traffic
+- Cache-hit behaviour and unexpected origin traffic
 - Daily usage against an established baseline, not only monthly totals
 
 ## Budget decision

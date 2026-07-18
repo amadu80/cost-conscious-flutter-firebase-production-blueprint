@@ -33,7 +33,7 @@ For each scenario record:
 - Owner
 - Evidence required before release
 
-Prioritize scenarios with high impact, weak detection, or irreversible consequences. A pre-mortem is not complete when it merely lists risks; it must change a control, test, decision, or accepted-risk record.
+Prioritise scenarios with high impact, weak detection, or irreversible consequences. A pre-mortem is not complete when it merely lists risks; it must change a control, test, decision, or accepted-risk record.
 
 ## Post-mortem method
 
@@ -41,13 +41,13 @@ Prioritize scenarios with high impact, weak detection, or irreversible consequen
 
 Record impact, affected users or operations, start and end in UTC, detection source, and recovery. Build a timestamped timeline from logs, deployments, alerts, and communications. Separate verified facts from hypotheses.
 
-### Analyze contributing factors
+### Analyse contributing factors
 
-Look beyond the triggering action. Examine architecture, defaults, review, test coverage, generated configuration, permissions, observability, documentation, workload, and organizational incentives. Avoid a single “root cause” when several controls had to fail.
+Look beyond the triggering action. Examine architecture, defaults, review, test coverage, generated configuration, permissions, observability, documentation, workload, and organisational incentives. Avoid a single “root cause” when several controls had to fail.
 
 ### Define corrective actions
 
-Actions should be specific, owned, prioritized, and verifiable. Balance prevention with faster detection and safer recovery. “Be more careful” is not a control.
+Actions should be specific, owned, prioritised, and verifiable. Balance prevention with faster detection and safer recovery. “Be more careful” is not a control.
 
 ## Example failure class: generated configuration missing in CI
 
@@ -57,13 +57,13 @@ A generated source file exists on developer machines but is ignored or never cre
 
 ### Options
 
-- Commit the generated artifact.
+- Commit the generated artefact.
 - Generate it in CI from validated inputs.
 - Avoid generation and read runtime configuration.
 
 ### Decision criteria
 
-Commit only deterministic, non-sensitive artifacts whose presence is required across workflows. Otherwise generate them explicitly before analysis, testing, and build. Runtime configuration is appropriate only when hosting and application bootstrap can validate it reliably.
+Commit only deterministic, non-sensitive artefacts whose presence is required across workflows. Otherwise generate them explicitly before analysis, testing, and build. Runtime configuration is appropriate only when hosting and application bootstrap can validate it reliably.
 
 ### Why this matters
 
@@ -74,7 +74,7 @@ The visible error is a missing file, but contributors may include undocumented s
 - Reviews consume time. Scope them by impact and use a consistent template.
 - Blameless language can be mistaken for no accountability. Assign every action an owner and verification date.
 - Documents can become archives without change. Review overdue actions and link completed work to evidence.
-- Sensitive incidents may expose exploitable detail. Restrict distribution and publish only sanitized lessons.
+- Sensitive incidents may expose exploitable detail. Restrict distribution and publish only sanitised lessons.
 
 ## Revisit when
 

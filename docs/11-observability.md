@@ -1,6 +1,6 @@
 # Observability
 
-Observability is the ability to explain system behavior from its outputs. Monitoring asks whether known conditions crossed a threshold; observability must also support investigation of failures that were not predicted.
+Observability is the ability to explain system behaviour from its outputs. Monitoring asks whether known conditions crossed a threshold; observability must also support investigation of failures that were not predicted.
 
 ## Problem
 
@@ -58,4 +58,4 @@ Adopt centralized log routing, OpenTelemetry, or a commercial platform when cros
 
 ## Validation evidence
 
-Simulate a client initialization failure, rejected authorization, failing function, latency increase, and usage spike. Confirm that telemetry identifies the release and affected boundary, reaches the owner, supports diagnosis without exposing sensitive data, and verifies recovery.
+Simulate a client initialisation failure, rejected authorisation, failing function, latency increase, and usage spike. Confirm that telemetry identifies the release and affected boundary, reaches the owner, supports diagnosis without exposing sensitive data, and verifies recovery.
