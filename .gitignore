@@ -1,0 +1,14 @@
+.DS_Store
+.idea/
+.vscode/
+.dart_tool/
+.packages
+build/
+node_modules/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!.tfvars.example
+.terraform/
+crashlytics-build.properties
+firebase-debug.log
