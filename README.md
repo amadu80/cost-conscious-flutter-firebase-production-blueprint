@@ -4,30 +4,6 @@ A technology-neutral case study and practical guide for taking a Flutter web app
 
 This repository documents reusable engineering decisions—not a specific product. All names, identifiers, values, diagrams, and examples are intentionally generic.
 
-## Professional capability portfolio
-
-This blueprint is also an evidence-based account of the capabilities developed and applied by Amadu Silva Bah, a Lead Backend Engineer and Technical Architect with more than 20 years of experience in production backend systems, cloud platforms, DevOps, and technical modernisation. It is intended for engineering leaders, organisations, clients, and talent teams looking for help with cloud infrastructure optimisation, cost control, application security, information security, architecture, reliability, observability, and production delivery.
-
-The work demonstrates the ability to:
-
-- investigate a system across application, data, cloud, edge, release, and operational boundaries;
-- turn incidents and infrastructure drift into reusable controls and runbooks;
-- challenge technology choices using cost, security, reliability, privacy, performance, and team capacity;
-- introduce Terraform and automation without pretending partial infrastructure coverage is complete;
-- harden Firebase and Flutter Web while preserving delivery speed and low operating overhead;
-- connect user-facing errors to structured backend logs through support-friendly correlation identifiers;
-- design idempotent, retry-safe, observable operations for consumption-based platforms;
-- use recognised security and InfoSec frameworks without making unsupported certification claims; and
-- use AI assistants with explicit scope, attribution, adversarial review, tests, and human accountability.
-
-The originating experience is broader than the blueprint's Flutter and Firebase focus. It includes AWS platform architecture, Terraform and Docker automation, PHP/Symfony and Node.js systems, distributed messaging, edge caching, CI/CD, databases, and production observability. Recorded professional outcomes include approximately 40% less infrastructure provisioning time, 35% shorter release cycles, 25% fewer production incidents, and latency below 200 ms during major global traffic peaks. These figures belong to the engagements where they were measured and are not claimed as guaranteed results or DjobiLi benchmarks.
-
-## Engage, contribute, or support
-
-The author is open to professional conversations about infrastructure optimisation, cloud-cost reduction, security and InfoSec reviews, architecture, Flutter/Firebase production readiness, observability, reliability, and engineering governance. To discuss a role, advisory review, or practical engagement, visit [amadusilvabah.site](https://amadusilvabah.site) or make contact through the [author's GitHub profile](https://github.com/amadu80z).
-
-Peer review and technical contributions are welcome, especially when they add contrary evidence, provider-specific limitations, measurable results, or safer alternatives. If the blueprint saves investigation time or prevents an operational failure, you can [support its continued maintenance through Buy Me a Coffee](https://www.buymeacoffee.com/amadu80z).
-
 ## The problem
 
 A prototype can compile, pass basic tests, and deploy while still being unprepared for production. Browser caches can combine incompatible releases, generated configuration can exist locally but not in CI, client-side validation can be bypassed, manual infrastructure can drift, and consumption-based services can turn inefficient access or abuse into unexpected cost.
@@ -186,17 +162,27 @@ No static guide can guarantee that nothing important is missing for every system
 
 The examples are deliberately incomplete and use placeholders. Validate every control against your own threat model, legal requirements, budget, and platform documentation before production use.
 
-## 💰 Support & Sustained Maintenance
+## About the author, contribution, and support
 
-This blueprint is open-source, but maintaining a production-grade reference architecture requires continuous verification. Your financial support directly funds the operational costs of maintaining this knowledge base:
+This blueprint is also an evidence-based account of the capabilities developed and applied by Amadu Silva Bah, a Lead Backend Engineer and Technical Architect with more than 20 years of experience in production backend systems, cloud platforms, DevOps, and technical modernisation.
 
-* **Real-world Verification:** Covering the live Firebase, Cloudflare, and AWS/GCP infrastructure costs required to run synthetic tests, execute real restore drills, and generate actual telemetry data.
-* **Keeping the Edge Sharp:** Upgrading the decision map as Flutter Web, Terraform providers, and Firebase security protocols evolve.
-* **Zero Paywalls:** Keeping deep, architectural engineering knowledge free and accessible without lock-in or courses.
+The work demonstrates the ability to:
 
-If this decision map saved your team days of architectural discovery, protected you from a Firebase billing spike, or hardened your release pipeline, consider supporting the project.
+- investigate systems across application, data, cloud, edge, release, and operational boundaries;
+- turn incidents and infrastructure drift into reusable controls and runbooks;
+- challenge technology choices using cost, security, reliability, privacy, performance, and team capacity;
+- introduce Terraform and automation without presenting partial infrastructure coverage as complete;
+- harden Firebase and Flutter Web while preserving delivery speed and low operating overhead;
+- connect user-facing errors to structured backend logs through support-friendly correlation identifiers;
+- design idempotent, retry-safe, observable operations for consumption-based platforms;
+- use recognised security and InfoSec frameworks without making unsupported certification claims; and
+- use AI assistants with explicit scope, attribution, adversarial review, tests, and human accountability.
 
-👉 [**Sponsor the Blueprint via Buy Me a Coffee**](https://www.buymeacoffee.com/amadu80z)
+The experience behind the blueprint extends beyond Flutter and Firebase to AWS platform architecture, Terraform and Docker automation, PHP/Symfony and Node.js systems, distributed messaging, edge caching, CI/CD, databases, and production observability. Recorded outcomes include approximately 40% less infrastructure provisioning time, 35% shorter release cycles, 25% fewer production incidents, and latency below 200 ms during major global traffic peaks. These figures belong to the engagements where they were measured; they are neither guaranteed results nor DjobiLi benchmarks.
+
+For conversations about infrastructure optimisation, cloud-cost reduction, security and InfoSec reviews, architecture, production readiness, observability, reliability, or engineering governance, visit [amadusilvabah.site](https://amadusilvabah.site) or make contact through [GitHub](https://github.com/amadu80z).
+
+Peer review and technical contributions are welcome, particularly when they add contrary evidence, provider-specific limitations, measurable results, or safer alternatives. Maintaining the blueprint also requires live infrastructure for synthetic tests, restore drills, and telemetry verification. If this work saves investigation time or prevents an operational failure, you can [support its continued maintenance through Buy Me a Coffee](https://www.buymeacoffee.com/amadu80z).
 
 ## Licence
 
