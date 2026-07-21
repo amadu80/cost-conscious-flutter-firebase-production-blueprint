@@ -4,6 +4,30 @@ A technology-neutral case study and practical guide for taking a Flutter web app
 
 This repository documents reusable engineering decisions—not a specific product. All names, identifiers, values, diagrams, and examples are intentionally generic.
 
+## Professional capability portfolio
+
+This blueprint is also an evidence-based account of the capabilities developed and applied by Amadu Silva Bah, a Lead Backend Engineer and Technical Architect with more than 20 years of experience in production backend systems, cloud platforms, DevOps, and technical modernisation. It is intended for engineering leaders, organisations, clients, and talent teams looking for help with cloud infrastructure optimisation, cost control, application security, information security, architecture, reliability, observability, and production delivery.
+
+The work demonstrates the ability to:
+
+- investigate a system across application, data, cloud, edge, release, and operational boundaries;
+- turn incidents and infrastructure drift into reusable controls and runbooks;
+- challenge technology choices using cost, security, reliability, privacy, performance, and team capacity;
+- introduce Terraform and automation without pretending partial infrastructure coverage is complete;
+- harden Firebase and Flutter Web while preserving delivery speed and low operating overhead;
+- connect user-facing errors to structured backend logs through support-friendly correlation identifiers;
+- design idempotent, retry-safe, observable operations for consumption-based platforms;
+- use recognised security and InfoSec frameworks without making unsupported certification claims; and
+- use AI assistants with explicit scope, attribution, adversarial review, tests, and human accountability.
+
+The originating experience is broader than the blueprint's Flutter and Firebase focus. It includes AWS platform architecture, Terraform and Docker automation, PHP/Symfony and Node.js systems, distributed messaging, edge caching, CI/CD, databases, and production observability. Recorded professional outcomes include approximately 40% less infrastructure provisioning time, 35% shorter release cycles, 25% fewer production incidents, and latency below 200 ms during major global traffic peaks. These figures belong to the engagements where they were measured and are not claimed as guaranteed results or DjobiLi benchmarks.
+
+## Engage, contribute, or support
+
+The author is open to professional conversations about infrastructure optimisation, cloud-cost reduction, security and InfoSec reviews, architecture, Flutter/Firebase production readiness, observability, reliability, and engineering governance. To discuss a role, advisory review, or practical engagement, visit [amadusilvabah.site](https://amadusilvabah.site) or make contact through the [author's GitHub profile](https://github.com/amadu80z).
+
+Peer review and technical contributions are welcome, especially when they add contrary evidence, provider-specific limitations, measurable results, or safer alternatives. If the blueprint saves investigation time or prevents an operational failure, you can [support its continued maintenance through Buy Me a Coffee](https://www.buymeacoffee.com/amadu80z).
+
 ## The problem
 
 A prototype can compile, pass basic tests, and deploy while still being unprepared for production. Browser caches can combine incompatible releases, generated configuration can exist locally but not in CI, client-side validation can be bypassed, manual infrastructure can drift, and consumption-based services can turn inefficient access or abuse into unexpected cost.
@@ -108,6 +132,10 @@ Operations-> backups, restore, rollback, incidents, budgets, data changes
 21. [AI-assisted engineering workflow](docs/21-ai-assisted-engineering-workflow.md)
 22. [Information security and compliance alignment](docs/22-infosec-and-compliance-alignment.md)
 
+## Decision map
+
+| Problem or risk | Applied approach | Intended value | Detailed evidence and guidance |
+|---|---|---|---|
 | UI, business rules, and Firebase become coupled | Feature-oriented layers and repository contracts | Testability and controlled vendor boundaries | [Architecture decisions](docs/02-architecture-decisions.md) |
 | Local builds hide missing production inputs | Layered CI gates and explicit generation | Reproducibility in clean environments | [CI and quality gates](docs/06-ci-quality-gates.md) |
 | Browsers use files from different releases | Release identity and differentiated cache policy | Safe upgrades without disabling useful caching | [Flutter web releases](docs/03-flutter-web-release.md) |

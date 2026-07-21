@@ -29,6 +29,19 @@ Keep these labels separate:
 
 Blueprint prose and empty templates are principles and evidence structures. They are not implementation or assurance.
 
+## Originating-project alignment lessons
+
+The private project that informed this blueprint recently added audit trails, PII masking, TTL fields, idempotency, profile projection, App Check and form-abuse controls. Those changes improve the set of implementation examples from which lessons can be drawn, but they also exposed alignment failures that the public guidance must make explicit:
+
+- a provider query can verify database edition, delete protection and point-in-time recovery at one moment, but cannot prove restore capability or the rest of the declared infrastructure;
+- retention prose, data producers, Terraform and Firestore index configuration can disagree, so lifecycle policy needs a single inventory plus automated drift checks and deletion evidence;
+- public feature flags do not justify anonymous reads across an entire configuration namespace;
+- audit hashing is pseudonymisation and needs access, retention, completeness, failure-alert and investigation controls;
+- passing tests after AI-assisted security changes are not independent assurance when the same workflow also repaired the tests; and
+- controls on an unmerged or unpushed branch are implementation evidence only, not release or operational evidence.
+
+These are sanitised lessons, not claims about a reader's deployment or proof that the originating system is conformant.
+
 ## NIST CSF 2.0 outcome map
 
 | Function | Blueprint contribution | Evidence a real project still needs |
@@ -105,6 +118,9 @@ For a small team, start with applicable Implementation Group 1 safeguards: inven
 - Log/alert inventory, alert exercise, incident timeline, and corrective actions
 - RPO/RTO, protected backup, isolated restore, integrity/application verification
 - Supplier review, agreements, subprocessors, outage/exit plan, and reassessment
+- Branch/release lineage showing that the reviewed control reached the authoritative source, immutable artefact and deployed environment
+- Retention reconciliation linking policy, producer expiry fields, infrastructure declarations, provider state, deletion lag and downstream copies
+- Audit-control evidence covering event completeness, pseudonymisation limits, privileged access, failed-write detection, investigation use and disposal
 
 Keep sensitive evidence in an access-controlled system. Publish only sanitised outcomes and stable references.
 
